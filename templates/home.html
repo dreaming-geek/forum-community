@@ -6,19 +6,9 @@
 
 <div class="row">
     <a href="#create" class="medium success button">Create a topic</a>
-    <div class="large-12 columns panel">
-        <h4>title</h4>
+    <div class="large-12 columns panel" ng-repeat="topic in topics">
+        <h4>{{topic.name}}</h4>
 
-        <p>description</p>
-    </div>
-    <div class="large-12 columns panel">
-        <h4>title</h4>
-
-        <p>description</p>
-    </div>
-    <div class="large-12 columns panel">
-        <h4>title</h4>
-
-        <p>description</p>
+        <p>{{topic.body}}</p>
     </div>
 </div>
