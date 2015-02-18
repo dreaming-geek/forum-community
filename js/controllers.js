@@ -7,16 +7,24 @@
       return $scope.topics = topics;
     }
   ]).controller("CreateCtrl", [
-    "$scope", "FirebaseFactory", function($scope, FirebaseFactory) {
+    "$scope", "FirebaseFactory", "$location", function($scope, FirebaseFactory, $location) {
       return $scope.postTopic = function() {
         var topics;
         $scope.post.likes = 0;
         $scope.post.dislikes = 0;
         return topics = FirebaseFactory.insertToFb($scope.post, "topics").then(function(data) {
           alert("The topic has been saved");
-          return $scope.post = '';
+          $scope.post = '';
+          return $location.path("/");
         });
       };
+    }
+  ]).controller("PostDetailCtrl", [
+    "$scope", "FirebaseFactory", "$routeParams", function($scope, FirebaseFactory, $routeParams) {
+      var post, postId;
+      postId = $routeParams.postId;
+      post = FirebaseFactory.getFbRef("topics/" + postId).$asObject();
+      return $scope.post = post;
     }
   ]);
 

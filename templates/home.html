@@ -7,8 +7,10 @@
 <div class="row">
     <a href="#create" class="medium success button">Create a topic</a>
     <div class="large-12 columns panel" ng-repeat="topic in topics">
-        <h4>{{topic.name}}</h4>
+        <a href="#/viewPost/{{topic.$id}}">
+            <h4>{{topic.name}}</h4>
 
-        <p>{{topic.body}}</p>
+            <p>{{topic.body}}</p>
+        </a>
     </div>
 </div>

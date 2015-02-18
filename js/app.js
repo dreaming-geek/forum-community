@@ -7,6 +7,9 @@
     }).when('/create', {
       templateUrl: 'templates/create.html',
       controller: 'CreateCtrl'
+    }).when('/viewPost/:postId', {
+      templateUrl: 'templates/postDetail.html',
+      controller: 'PostDetailCtrl'
     }).otherwise({
       redirectTo: '/'
     });

@@ -5,7 +5,7 @@ angular
   .$asArray()
   $scope.topics = topics
 ]
-.controller "CreateCtrl", ["$scope", "FirebaseFactory", ($scope, FirebaseFactory) ->
+.controller "CreateCtrl", ["$scope", "FirebaseFactory", "$location", ($scope, FirebaseFactory, $location) ->
   $scope.postTopic = ->
     $scope.post.likes = 0
     $scope.post.dislikes = 0
@@ -13,4 +13,11 @@ angular
     .then (data) ->
       alert "The topic has been saved"
       $scope.post = ''
+      $location.path "/"
+]
+.controller "PostDetailCtrl", ["$scope", "FirebaseFactory", "$routeParams", ($scope, FirebaseFactory, $routeParams) ->
+  postId = $routeParams.postId
+  post = FirebaseFactory.getFbRef "topics/#{postId}"
+  .$asObject()
+  $scope.post = post
 ]
