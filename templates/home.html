@@ -8,8 +8,8 @@
     <a href="#create" class="medium success button">Create a topic</a>
     <div class="large-12 columns panel" ng-repeat="topic in topics">
         <a href="#/viewPost/{{topic.$id}}">
-            <h4>{{topic.name}}</h4>
-
+            <h4>{{topic.topicName}}</h4><span class="post-user">{{topic.personName}}</span> -
+            <span class="post-date">{{topic.created | date : 'short'}}</span>
             <p>{{topic.body}}</p>
         </a>
     </div>

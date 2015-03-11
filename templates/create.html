@@ -2,12 +2,16 @@
     <button class="medium success button" ng-click="postTopic()">Post topic</button>
     <div class="large-12 columns panel">
         <div class="large-12 columns">
-            <label>Name</label>
-            <input type="text" ng-model="post.name"/>
+            <label>Topic Name</label>
+            <input type="text" ng-model="post.topicName"/>
         </div>
         <div class="large-12 columns">
             <label>Body</label>
             <textarea ng-model="post.body"></textarea>
+        </div>
+        <div class="large-12 columns">
+            <label>Your Name</label>
+            <input type="text" ng-model="post.personName"/>
         </div>
     </div>
 
